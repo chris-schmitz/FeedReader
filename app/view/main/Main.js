@@ -10,7 +10,8 @@ Ext.define('FeedReader.view.main.Main', {
     requires: [
         'FeedReader.view.main.MainController',
         'FeedReader.view.north.North',
-        'FeedReader.view.west.West'
+        'FeedReader.view.west.West',
+        'FeedReader.view.center.Center'
     ],
     xtype: 'app-main',
     
@@ -25,50 +26,9 @@ Ext.define('FeedReader.view.main.Main', {
         },
         {
             xtype: 'region-west'
-        },{
-            region: 'center',
-            xtype: 'tabpanel',
-            items:[{
-                title: 'Posts',
-                html: '<h2>This would be replaced with a list of article titles returned from the erver</h2>'
-            },{
-                title: 'Details',
-                layout: 'fit',
-                items: [
-                    {
-                        xtype: 'grid',
-                        title: 'Simpsons', 
-                        store:{
-                            fields: ['name', 'email', 'phone'],
-                            data:[
-                                {
-                                    name: 'Lisa', email: 'lisa@gmail.com', phone: '12345'
-                                },
-                                {
-                                    name: 'Bart', email: 'bart@gmail.com', phone: '12345'
-                                }
-                            ],
-                            proxy:{type: 'memory'} 
-                        },
-                        columns:[
-                            {
-                                text: 'Name',
-                                dataIndex: 'name'
-                            },
-                            {
-                                text: 'Email',
-                                dataIndex: 'email',
-                                flex: 1
-                            },
-                            {
-                                text: 'Phone',
-                                dataIndex: 'phone' 
-                            }
-                        ]
-                    }
-                ]
-            }
-            ]
-    }
+        },
+        {
+            xtype: 'region-center'
+        }
     ]
 });
